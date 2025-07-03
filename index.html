@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Кофейня "Падингтон" - Искусство в каждой чашке</title>
+    <title>Кав'ярня "Падінгтон" - Мистецтво в кожній чашці</title>
     
-    <!-- Подключение новых элегантных шрифтов -->
+    <!-- Підключення елегантних шрифтів -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     
     <style>
-        /* ------------ ГЛОБАЛЬНЫЕ СТИЛИ И ПЕРЕМЕННЫЕ ------------ */
+        /* ------------ ГЛОБАЛЬНІ СТИЛІ ТА ЗМІННІ ------------ */
         :root {
             --primary-brown: #6B4F4F;
             --secondary-brown: #A77979;
-            --cream-bg: #FDFBF5; /* Более светлый кремовый */
+            --cream-bg: #FDFBF5; /* Світліший кремовий */
             --dark-text: #483434;
             --accent-cream: #F3E9DD;
             --white: #ffffff;
@@ -65,7 +65,7 @@
         section {
             padding: 6rem 0;
             position: relative;
-            overflow: hidden; /* Важно для работы разделителей */
+            overflow: hidden; /* Важливо для роботи роздільників */
         }
 
         .btn {
@@ -87,7 +87,7 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
 
-        /* Анимация появления элементов при скролле */
+        /* Анімація появи елементів при скролі */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -98,7 +98,7 @@
             transform: translateY(0);
         }
         
-        /* ------------ НАВИГАЦИЯ ------------ */
+        /* ------------ НАВІГАЦІЯ ------------ */
         .main-header {
             position: sticky;
             top: 0;
@@ -161,7 +161,7 @@
             width: 100%;
         }
 
-        /* ------------ ГЛАВНЫЙ РАЗДЕЛ (HERO) ------------ */
+        /* ------------ ГОЛОВНИЙ РОЗДІЛ (HERO) ------------ */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -185,10 +185,10 @@
             font-weight: 300;
         }
         
-        /* ------------ ВОЛНИСТЫЙ РАЗДЕЛИТЕЛЬ СЕКЦИЙ ------------ */
+        /* ------------ ХВИЛЯСТИЙ РОЗДІЛЮВАЧ СЕКЦІЙ ------------ */
         .wave-divider {
             position: absolute;
-            bottom: -1px; /* Спрятать артефакты рендеринга */
+            bottom: -1px; /* Сховати артефакти рендерингу */
             left: 0;
             width: 100%;
             overflow: hidden;
@@ -205,10 +205,10 @@
             fill: var(--accent-cream);
         }
 
-        /* ------------ РАЗДЕЛ "О НАС" ------------ */
+        /* ------------ РОЗДІЛ "ПРО НАС" ------------ */
         #about {
             background-color: var(--accent-cream);
-            padding-top: 8rem; /* Дополнительный отступ сверху из-за волны */
+            padding-top: 8rem; /* Додатковий відступ зверху через хвилю */
         }
         
         .about-content {
@@ -243,7 +243,7 @@
         }
 
 
-        /* ------------ РАЗДЕЛ МЕНЮ ------------ */
+        /* ------------ РОЗДІЛ МЕНЮ ------------ */
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -290,11 +290,11 @@
             line-height: 1.6;
         }
         
-        /* ------------ РАЗДЕЛ КОНТАКТЫ ------------ */
+        /* ------------ РОЗДІЛ КОНТАКТИ ------------ */
         #contact {
             background-color: var(--primary-brown);
             color: var(--cream-bg);
-            padding-top: 8rem; /* Доп. отступ */
+            padding-top: 8rem; /* Дод. відступ */
         }
         
         .wave-divider.top-wave {
@@ -340,7 +340,7 @@
             color: #fff;
         }
         
-        /* ------------ ПОДВАЛ (FOOTER) ------------ */
+        /* ------------ ПІДВАЛ (FOOTER) ------------ */
         .main-footer {
             text-align: center;
             padding: 2rem;
@@ -348,7 +348,7 @@
             color: var(--accent-cream);
         }
         
-        /* ------------ АДАПТИВНОСТЬ ------------ */
+        /* ------------ АДАПТИВНІСТЬ ------------ */
         @media(max-width: 992px) {
             .about-content {
                 grid-template-columns: 1fr;
@@ -398,26 +398,26 @@
 
     <header class="main-header">
         <div class="container">
-            <a href="#" class="logo">Падингтон</a>
+            <a href="#" class="logo">Паддінгтон</a>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#about">Про нас</a></li>
                     <li><a href="#menu">Меню</a></li>
-                    <li><a href="#contact">Контакты</a></li>
+                    <li><a href="#contact">Контакти</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <!-- ======================= ГЛАВНЫЙ РАЗДЕЛ ======================= -->
+        <!-- ======================= ГОЛОВНИЙ РОЗДІЛ ======================= -->
         <section class="hero" id="hero">
             <div class="hero-content">
-                <h1 class="fade-in">Искусство в каждой чашке</h1>
-                <p class="fade-in" style="transition-delay: 0.2s;">Откройте для себя мир настоящего спешелти кофе в уютной атмосфере нашей кофейни.</p>
-                <a href="#menu" class="btn fade-in" style="transition-delay: 0.4s;">Посмотреть меню</a>
+                <h1 class="fade-in">Мистецтво в кожній чашці</h1>
+                <p class="fade-in" style="transition-delay: 0.2s;">Відкрийте для себе світ справжньої спешелті кави в затишній атмосфері нашої кав'ярні.</p>
+                <a href="#menu" class="btn fade-in" style="transition-delay: 0.4s;">Переглянути меню</a>
             </div>
-            <!-- Волнистый разделитель -->
+            <!-- Хвилястий розділювач -->
             <div class="wave-divider">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                     <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
@@ -425,83 +425,83 @@
             </div>
         </section>
 
-        <!-- ======================= РАЗДЕЛ О КОМПАНИИ ======================= -->
+        <!-- ======================= РОЗДІЛ ПРО НАС ======================= -->
         <section id="about">
             <div class="container">
-                <h2 class="fade-in">Наша история</h2>
+                <h2 class="fade-in">Наша історія</h2>
                 <div class="about-content">
                     <div class="about-text fade-in" style="transition-delay: 0.2s;">
-                        <p>Кофейня "Падингтон" родилась из любви к путешествиям и страсти к идеальной чашке кофе. Вдохновившись уютом лондонских улочек, мы создали место, где каждый гость сможет отдохнуть от суеты.</p>
-                        <p>Мы лично отбираем лучшие зерна, обжариваем их с особой заботой, чтобы раскрыть все грани вкуса и аромата. </p>
+                        <p>Кав'ярня "Падінгтон" народилася з любові до подорожей та пристрасті до ідеальної чашки кави. Натхненні затишком лондонських вуличок, ми створили місце, де кожен гість зможе відпочити від метушні.</p>
+                        <p>Ми особисто відбираємо найкращі зерна, обсмажуємо їх з особливою турботою, щоб розкрити усі грані смаку та аромату.</p>
                         <blockquote class="about-quote">
-                            Наша миссия — не просто готовить кофе, а дарить вам маленькое ежедневное путешествие.
+                            Наша місія — не просто готувати каву, а дарувати вам маленьку щоденну подорож.
                         </blockquote>
                     </div>
                     <div class="about-image fade-in" style="transition-delay: 0.4s;">
-                        <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?q=80&w=1887&auto=format&fit=crop" alt="Уютный интерьер кофейни">
+                        <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?q=80&w=1887&auto=format&fit=crop" alt="Затишний інтер'єр кав'ярні">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ======================= РАЗДЕЛ МЕНЮ ======================= -->
+        <!-- ======================= РОЗДІЛ МЕНЮ ======================= -->
         <section id="menu">
             <div class="container">
-                <h2 class="fade-in">Фирменные напитки</h2>
+                <h2 class="fade-in">Фірмові напої</h2>
                 <div class="menu-grid">
-                    <!-- Карточка 1 -->
+                    <!-- Картка 1 -->
                     <div class="menu-card fade-in" style="transition-delay: 0.1s;">
                         <svg class="menu-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.334 11.0003H19.75C20.8546 11.0003 21.75 11.8957 21.75 13.0003V17.0003C21.75 18.1049 20.8546 19.0003 19.75 19.0003H6.25C5.14543 19.0003 4.25 18.1049 4.25 17.0003V13.0003C4.25 11.8957 5.14543 11.0003 6.25 11.0003H11.5M10.5 5.00025C10.5 5.00025 11 5.50025 12.5 6.50025C14.5 7.90025 15.5 8.50025 17.5 6.50025C19.5 4.50025 18.5 3.50025 18.5 3.50025M7.5 5.00025C7.5 5.00025 8 5.50025 9.5 6.50025C11.5 7.90025 12.5 8.50025 14.5 6.50025C16.5 4.50025 15.5 3.50025 15.5 3.50025" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         <div class="menu-card-content">
-                            <h3>Латте 'Падингтон'</h3>
-                            <p>Нежный эспрессо с бархатистой пеной и легкой ноткой апельсинового мармелада.</p>
+                            <h3>Лате 'Падінгтон'</h3>
+                            <p>Ніжний еспресо з оксамитовою пінкою та легкою ноткою апельсинового мармеладу.</p>
                         </div>
                     </div>
-                    <!-- Карточка 2 -->
+                    <!-- Картка 2 -->
                     <div class="menu-card fade-in" style="transition-delay: 0.3s;">
                         <svg class="menu-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 11.333V18C4 19.1046 4.89543 20 6 20H18C19.1046 20 20 19.1046 20 18V11.333M4 11.333H20M4 11.333C4 8.38781 6.23858 6 9 6H15C17.7614 6 20 8.38781 20 11.333M9.5 3.5C9.5 4.32843 10.1716 5 11 5H13C13.8284 5 14.5 4.32843 14.5 3.5C14.5 2.67157 13.8284 2 13 2H11C10.1716 2 9.5 2.67157 9.5 3.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         <div class="menu-card-content">
                             <h3>Капучино 'Крем-брюле'</h3>
-                            <p>Классический капучино с натуральным ванильным сиропом и хрустящей карамельной корочкой.</p>
+                            <p>Класичне капучино з натуральним ванільним сиропом та хрусткою карамельною скоринкою.</p>
                         </div>
                     </div>
-                    <!-- Карточка 3 -->
+                    <!-- Картка 3 -->
                     <div class="menu-card fade-in" style="transition-delay: 0.5s;">
                         <svg class="menu-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 22H15M12 18V22M12 18H18.5C19.8807 18 21 16.8807 21 15.5V11.5C21 10.1193 19.8807 9 18.5 9H17M12 18H5.5C4.11929 18 3 16.8807 3 15.5V11.5C3 10.1193 4.11929 9 5.5 9H7M7 9V6C7 3.79086 8.79086 2 11 2H13C15.2091 2 17 3.79086 17 6V9M7 9H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         <div class="menu-card-content">
-                            <h3>Колд Брю 'Темза'</h3>
-                            <p>Освежающий кофе холодного заваривания. 18 часов для получения глубокого вкуса.</p>
+                            <h3>Колд Брю 'Дніпро'</h3>
+                            <p>Освіжаюча кава холодного заварювання. 18 годин для отримання глибокого смаку.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ======================= РАЗДЕЛ КОНТАКТЫ ======================= -->
+        <!-- ======================= РОЗДІЛ КОНТАКТИ ======================= -->
         <section id="contact">
-            <!-- Верхняя волна -->
+            <!-- Верхня хвиля -->
             <div class="wave-divider top-wave">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                     <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
                 </svg>
             </div>
             <div class="container">
-                <h2 class="fade-in">Ждем вас в гости</h2>
+                <h2 class="fade-in">Чекаємо на вас у гості</h2>
                 <div class="contact-grid">
                     <div class="contact-item fade-in" style="transition-delay: 0.1s;">
                         <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 21C15.5 17.4 19 14.1764 19 10.2C19 6.22355 15.866 3 12 3C8.13401 3 5 6.22355 5 10.2C5 14.1764 8.5 17.4 12 21Z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
-                        <h3>Наш адрес</h3>
-                        <p>г. Москва, ул. Уютная, д. 15</p>
+                        <h3>Наша адреса</h3>
+                        <p>м. Київ, вул. Затишна, 15</p>
                     </div>
                      <div class="contact-item fade-in" style="transition-delay: 0.3s;">
                         <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5H21M3 12H21M3 19H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/></svg>
-                        <h3>Часы работы</h3>
-                        <p>Пн - Вс: 8:00 - 22:00</p>
+                        <h3>Години роботи</h3>
+                        <p>Пн - Нд: 8:00 - 22:00</p>
                     </div>
                      <div class="contact-item fade-in" style="transition-delay: 0.5s;">
                         <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 18.5V15.5C4 14.9477 4.44772 14.5 5 14.5H8M15 14.5H18C18.5523 14.5 19 14.9477 19 15.5V18.5C19 19.6046 18.1046 20.5 17 20.5H6C4.89543 20.5 4 19.6046 4 18.5M15 14.5C15 12.0147 12.9853 10 10.5 10C8.01472 10 6 12.0147 6 14.5M15 14.5L19.2787 9.17639C20.2562 7.99404 19.3473 6.24131 17.8931 6.24131H12.5H10.5M6 14.5L4.72129 9.17639C3.74376 7.99404 4.65269 6.24131 6.10688 6.24131H8" stroke="currentColor" stroke-width="1.5"/></svg>
-                        <h3>Связь с нами</h3>
-                        <p><a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+                        <h3>Зв'язок з нами</h3>
+                        <p><a href="tel:+380991234567">+380 (99) 123-45-67</a></p>
                     </div>
                 </div>
             </div>
@@ -509,10 +509,10 @@
     </main>
 
     <footer class="main-footer">
-        <p>© 2024 Кофейня "Падингтон". Дизайн с любовью к кофе.</p>
+        <p>© 2024 Кав'ярня "Падінгтон". Дизайн з любов'ю до кави.</p>
     </footer>
 
-    <!-- ======================= JAVASCRIPT ДЛЯ АНИМАЦИИ ======================= -->
+    <!-- ======================= JAVASCRIPT ДЛЯ АНІМАЦІЇ ======================= -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const observer = new IntersectionObserver((entries) => {
@@ -522,7 +522,7 @@
                     }
                 });
             }, {
-                threshold: 0.1 // Элемент считается видимым, когда виден на 10%
+                threshold: 0.1 // Елемент вважається видимим, коли видно 10%
             });
 
             const targets = document.querySelectorAll('.fade-in');
