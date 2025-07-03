@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кофейня "Падингтон" - Искусство в каждой чашке</title>
+    
+    <!-- Подключение новых элегантных шрифтов -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ------------ ГЛОБАЛЬНЫЕ СТИЛИ И ПЕРЕМЕННЫЕ ------------ */
+        :root {
+            --primary-brown: #6B4F4F;
+            --secondary-brown: #A77979;
+            --cream-bg: #FDFBF5; /* Более светлый кремовый */
+            --dark-text: #483434;
+            --accent-cream: #F3E9DD;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            background-color: var(--cream-bg);
+            color: var(--dark-text);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary-brown);
+        }
+        
+        h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        section {
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden; /* Важно для работы разделителей */
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--primary-brown);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            background: var(--secondary-brown);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Анимация появления элементов при скролле */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ------------ НАВИГАЦИЯ ------------ */
+        .main-header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(253, 251, 245, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 2px 15px rgba(72, 52, 52, 0.05);
+            padding: 1.2rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-brown);
+            text-decoration: none;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+        .main-nav a:hover {
+            color: var(--primary-brown);
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-brown);
+            transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* ------------ ГЛАВНЫЙ РАЗДЕЛ (HERO) ------------ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('https://images.unsplash.com/photo-1511920183353-321c13681da3?q=80&w=1887&auto=format&fit=crop') no-repeat center center/cover;
+            color: var(--white);
+            padding: 0 1rem;
+        }
+        
+        .hero-content h1 {
+            color: var(--white);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin: 1.5rem auto 3rem;
+            max-width: 600px;
+            font-weight: 300;
+        }
+        
+        /* ------------ ВОЛНИСТЫЙ РАЗДЕЛИТЕЛЬ СЕКЦИЙ ------------ */
+        .wave-divider {
+            position: absolute;
+            bottom: -1px; /* Спрятать артефакты рендеринга */
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 120px;
+        }
+        .wave-divider .shape-fill {
+            fill: var(--accent-cream);
+        }
+
+        /* ------------ РАЗДЕЛ "О НАС" ------------ */
+        #about {
+            background-color: var(--accent-cream);
+            padding-top: 8rem; /* Дополнительный отступ сверху из-за волны */
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-quote {
+            margin-top: 2rem;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--secondary-brown);
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--secondary-brown);
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 15px 15px 0px rgba(167, 121, 121, 0.5);
+            transition: all 0.4s ease;
+        }
+        .about-image img:hover {
+            transform: translate(-5px, -5px);
+            box-shadow: 20px 20px 0px rgba(167, 121, 121, 0.7);
+        }
+
+
+        /* ------------ РАЗДЕЛ МЕНЮ ------------ */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .menu-card {
+            background: var(--white);
+            border: 1px solid #eee;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(72, 52, 52, 0.05);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+        .menu-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 35px rgba(72, 52, 52, 0.1);
+        }
+
+        .menu-svg {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 1.5rem;
+            color: var(--primary-brown);
+            transition: color 0.3s ease;
+        }
+        
+        .menu-card:hover .menu-svg {
+            color: var(--secondary-brown);
+        }
+
+        .menu-card-content h3 {
+            margin-bottom: 0.75rem;
+            font-size: 1.6rem;
+        }
+
+        .menu-card-content p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        /* ------------ РАЗДЕЛ КОНТАКТЫ ------------ */
+        #contact {
+            background-color: var(--primary-brown);
+            color: var(--cream-bg);
+            padding-top: 8rem; /* Доп. отступ */
+        }
+        
+        .wave-divider.top-wave {
+             transform: rotate(0deg);
+             top: -1px;
+             bottom: auto;
+        }
+        .wave-divider.top-wave .shape-fill {
+            fill: var(--cream-bg);
+        }
+        
+        #contact h2 {
+            color: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .contact-item {
+            padding: 2rem 1rem;
+        }
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 1rem;
+            color: var(--accent-cream);
+        }
+        .contact-item h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .contact-item a {
+            color: var(--accent-cream);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact-item a:hover {
+            color: #fff;
+        }
+        
+        /* ------------ ПОДВАЛ (FOOTER) ------------ */
+        .main-footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--dark-text);
+            color: var(--accent-cream);
+        }
+        
+        /* ------------ АДАПТИВНОСТЬ ------------ */
+        @media(max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            .about-image {
+                margin-top: 3rem;
+                max-width: 500px;
+                justify-self: center;
+            }
+        }
+        
+        @media(max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            h2 {
+                font-size: 2.2rem;
+            }
+            section {
+                padding: 4rem 0;
+            }
+             #about, #contact {
+                padding-top: 6rem;
+             }
+
+            .main-header .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media(max-width: 480px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="#" class="logo">Падингтон</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#menu">Меню</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ======================= ГЛАВНЫЙ РАЗДЕЛ ======================= -->
+        <section class="hero" id="hero">
+            <div class="hero-content">
+                <h1 class="fade-in">Искусство в каждой чашке</h1>
+                <p class="fade-in" style="transition-delay: 0.2s;">Откройте для себя мир настоящего спешелти кофе в уютной атмосфере нашей кофейни.</p>
+                <a href="#menu" class="btn fade-in" style="transition-delay: 0.4s;">Посмотреть меню</a>
+            </div>
+            <!-- Волнистый разделитель -->
+            <div class="wave-divider">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- ======================= РАЗДЕЛ О КОМПАНИИ ======================= -->
+        <section id="about">
+            <div class="container">
+                <h2 class="fade-in">Наша история</h2>
+                <div class="about-content">
+                    <div class="about-text fade-in" style="transition-delay: 0.2s;">
+                        <p>Кофейня "Падингтон" родилась из любви к путешествиям и страсти к идеальной чашке кофе. Вдохновившись уютом лондонских улочек, мы создали место, где каждый гость сможет отдохнуть от суеты.</p>
+                        <p>Мы лично отбираем лучшие зерна, обжариваем их с особой заботой, чтобы раскрыть все грани вкуса и аромата. </p>
+                        <blockquote class="about-quote">
+                            Наша миссия — не просто готовить кофе, а дарить вам маленькое ежедневное путешествие.
+                        </blockquote>
+                    </div>
+                    <div class="about-image fade-in" style="transition-delay: 0.4s;">
+                        <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?q=80&w=1887&auto=format&fit=crop" alt="Уютный интерьер кофейни">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= РАЗДЕЛ МЕНЮ ======================= -->
+        <section id="menu">
+            <div class="container">
+                <h2 class="fade-in">Фирменные напитки</h2>
+                <div class="menu-grid">
+                    <!-- Карточка 1 -->
+                    <div class="menu-card fade-in" style="transition-delay: 0.1s;">
+                        <svg class="menu-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.334 11.0003H19.75C20.8546 11.0003 21.75 11.8957 21.75 13.0003V17.0003C21.75 18.1049 20.8546 19.0003 19.75 19.0003H6.25C5.14543 19.0003 4.25 18.1049 4.25 17.0003V13.0003C4.25 11.8957 5.14543 11.0003 6.25 11.0003H11.5M10.5 5.00025C10.5 5.00025 11 5.50025 12.5 6.50025C14.5 7.90025 15.5 8.50025 17.5 6.50025C19.5 4.50025 18.5 3.50025 18.5 3.50025M7.5 5.00025C7.5 5.00025 8 5.50025 9.5 6.50025C11.5 7.90025 12.5 8.50025 14.5 6.50025C16.5 4.50025 15.5 3.50025 15.5 3.50025" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <div class="menu-card-content">
+                            <h3>Латте 'Падингтон'</h3>
+                            <p>Нежный эспрессо с бархатистой пеной и легкой ноткой апельсинового мармелада.</p>
+                        </div>
+                    </div>
+                    <!-- Карточка 2 -->
+                    <div class="menu-card fade-in" style="transition-delay: 0.3s;">
+                        <svg class="menu-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 11.333V18C4 19.1046 4.89543 20 6 20H18C19.1046 20 20 19.1046 20 18V11.333M4 11.333H20M4 11.333C4 8.38781 6.23858 6 9 6H15C17.7614 6 20 8.38781 20 11.333M9.5 3.5C9.5 4.32843 10.1716 5 11 5H13C13.8284 5 14.5 4.32843 14.5 3.5C14.5 2.67157 13.8284 2 13 2H11C10.1716 2 9.5 2.67157 9.5 3.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <div class="menu-card-content">
+                            <h3>Капучино 'Крем-брюле'</h3>
+                            <p>Классический капучино с натуральным ванильным сиропом и хрустящей карамельной корочкой.</p>
+                        </div>
+                    </div>
+                    <!-- Карточка 3 -->
+                    <div class="menu-card fade-in" style="transition-delay: 0.5s;">
+                        <svg class="menu-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 22H15M12 18V22M12 18H18.5C19.8807 18 21 16.8807 21 15.5V11.5C21 10.1193 19.8807 9 18.5 9H17M12 18H5.5C4.11929 18 3 16.8807 3 15.5V11.5C3 10.1193 4.11929 9 5.5 9H7M7 9V6C7 3.79086 8.79086 2 11 2H13C15.2091 2 17 3.79086 17 6V9M7 9H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <div class="menu-card-content">
+                            <h3>Колд Брю 'Темза'</h3>
+                            <p>Освежающий кофе холодного заваривания. 18 часов для получения глубокого вкуса.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= РАЗДЕЛ КОНТАКТЫ ======================= -->
+        <section id="contact">
+            <!-- Верхняя волна -->
+            <div class="wave-divider top-wave">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                </svg>
+            </div>
+            <div class="container">
+                <h2 class="fade-in">Ждем вас в гости</h2>
+                <div class="contact-grid">
+                    <div class="contact-item fade-in" style="transition-delay: 0.1s;">
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 21C15.5 17.4 19 14.1764 19 10.2C19 6.22355 15.866 3 12 3C8.13401 3 5 6.22355 5 10.2C5 14.1764 8.5 17.4 12 21Z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+                        <h3>Наш адрес</h3>
+                        <p>г. Москва, ул. Уютная, д. 15</p>
+                    </div>
+                     <div class="contact-item fade-in" style="transition-delay: 0.3s;">
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5H21M3 12H21M3 19H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/></svg>
+                        <h3>Часы работы</h3>
+                        <p>Пн - Вс: 8:00 - 22:00</p>
+                    </div>
+                     <div class="contact-item fade-in" style="transition-delay: 0.5s;">
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 18.5V15.5C4 14.9477 4.44772 14.5 5 14.5H8M15 14.5H18C18.5523 14.5 19 14.9477 19 15.5V18.5C19 19.6046 18.1046 20.5 17 20.5H6C4.89543 20.5 4 19.6046 4 18.5M15 14.5C15 12.0147 12.9853 10 10.5 10C8.01472 10 6 12.0147 6 14.5M15 14.5L19.2787 9.17639C20.2562 7.99404 19.3473 6.24131 17.8931 6.24131H12.5H10.5M6 14.5L4.72129 9.17639C3.74376 7.99404 4.65269 6.24131 6.10688 6.24131H8" stroke="currentColor" stroke-width="1.5"/></svg>
+                        <h3>Связь с нами</h3>
+                        <p><a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>© 2024 Кофейня "Падингтон". Дизайн с любовью к кофе.</p>
+    </footer>
+
+    <!-- ======================= JAVASCRIPT ДЛЯ АНИМАЦИИ ======================= -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, {
+                threshold: 0.1 // Элемент считается видимым, когда виден на 10%
+            });
+
+            const targets = document.querySelectorAll('.fade-in');
+            targets.forEach(target => {
+                observer.observe(target);
+            });
+        });
+    </script>
+</body>
+</html>
